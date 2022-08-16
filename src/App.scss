@@ -1,3 +1,29 @@
+.App {
+  display: grid;
+  grid-template-columns: 1fr 4fr;
+  grid-template-areas: 
+  "header header header"
+  "nav main main"
+  "nav main main"
+  "nav main main";
 
+}
+
+.App-header {
+  border: 2px solid black;
+  grid-area: header;
+  height: 20vh;
+}
+
+.nav-bar {
+  border: 2px solid black;
+  grid-area: nav;
+  height: 100vh;
+}
+
+.main-section {
+  border: 2px solid black;
+  grid-area: main;
+}
 
 
