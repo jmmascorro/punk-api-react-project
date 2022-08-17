@@ -2,15 +2,21 @@ import './App.scss';
 import { useState } from "react";
 import SearchBox from './components/SearchBox/SearchBox';
 import SearchBeers from './components/SearchBeers/SearchBeers';
+import HighABVBox from './components/HighABVBox/HighABVBox';
 
 function App() {
 
   const [beers, setBeers] = useState();
   const [searchTerm, setSearchTerm] = useState();
+  const [abvChecked, setabvChecked] = useState(false);
 
   const handleInput = (event) => {
     const cleanInput = event.target.value.toLowerCase();
     setSearchTerm(cleanInput);
+  }
+
+  const handleABVCheckBox = () => {
+    setabvChecked(!abvChecked);
   }
 
   const getBeers = () => {
@@ -36,9 +42,12 @@ function App() {
         <section className="search-beers">
         <SearchBox searchTerm={searchTerm} handleInput={handleInput}/>
         </section>
+        <section className="high-abv-box">
+          <HighABVBox abvChecked={abvChecked} handleABVCheckBox={handleABVCheckBox}/>
+        </section>
       </nav>
       <main className="main-section">
-        {beers && <SearchBeers beers={beers} searchTerm={searchTerm}/>} 
+        {beers && <SearchBeers beers={beers} searchTerm={searchTerm} abvChecked={abvChecked}/>} 
       </main>
     </div>
   );
