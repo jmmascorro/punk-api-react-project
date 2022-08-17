@@ -1,5 +1,5 @@
 import './App.scss';
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import BeerContainer from './components/BeerContainer/BeerContainer';
 
 function App() {
@@ -17,7 +17,7 @@ function App() {
     })
   }
 
-  useEffect(getBeers, []);
+ getBeers();
 
   return (
     <div className="App">
@@ -28,7 +28,6 @@ function App() {
         NavBar
       </nav>
       <main className="main-section">
-        MainSection
         {beers && <BeerContainer beers={beers}/>}
       </main>
     </div>
