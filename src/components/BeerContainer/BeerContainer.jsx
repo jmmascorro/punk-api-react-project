@@ -7,7 +7,7 @@ const BeerContainer = (props) => {
 
     const mappedBeers = beers.map((data) => {
         
-        return <BeerCard name={data.name} image={data.image_url} tagline={data.tagline}/>
+        return <BeerCard name={data.name} image={data.image_url} tagline={data.tagline} brewed={data.first_brewed.slice(3, 7)}/>
     })
 
     return (

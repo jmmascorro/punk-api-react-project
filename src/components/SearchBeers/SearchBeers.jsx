@@ -1,15 +1,14 @@
 import BeerContainer from "../BeerContainer/BeerContainer";
-import HighABVBox from "../HighABVBox/HighABVBox";
 
 const SearchBeers = (props) => {
 
-    const { beers, searchTerm, abvChecked } = props;
+    const { beers, searchTerm, abvChecked, classicChecked, acidityChecked }  = props;
 
-    if(searchTerm === undefined && abvChecked === false) {
+    if(searchTerm === undefined && abvChecked === false && classicChecked === false && acidityChecked === false) {
+        
+        return <BeerContainer beers={beers} />
+        
 
-        return (
-            <BeerContainer beers={beers} />
-        )
     }else if (abvChecked === true) {
 
         const abvFilteredBeers = beers.filter((data) => {
@@ -19,6 +18,27 @@ const SearchBeers = (props) => {
         return (
             <BeerContainer beers={abvFilteredBeers} />
         )
+    }else if(classicChecked === true) {
+        
+        const classicFilteredBeers = beers.filter((data) => {
+            
+            const date = Number(data.first_brewed.slice(3, 7));
+
+            return date < 2010;
+            
+        })
+
+        return <BeerContainer beers={classicFilteredBeers} />
+
+    }else if(acidityChecked === true) {
+
+        const acidityFilteredBeers = beers.filter((data) => {
+
+            return data.ph < 4;
+        })
+
+        return <BeerContainer beers={acidityFilteredBeers}/>
+
     }else {
 
         const filteredBeers = beers.filter((data) => {
@@ -34,7 +54,8 @@ const SearchBeers = (props) => {
             </div>
         )
     }
-    
+
 }
+
 
 export default SearchBeers;

@@ -1,14 +1,16 @@
 import './App.scss';
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import SearchBox from './components/SearchBox/SearchBox';
 import SearchBeers from './components/SearchBeers/SearchBeers';
-import HighABVBox from './components/HighABVBox/HighABVBox';
+import CheckBoxes from './components/CheckBoxes/CheckBoxes';
 
 function App() {
 
   const [beers, setBeers] = useState();
   const [searchTerm, setSearchTerm] = useState();
-  const [abvChecked, setabvChecked] = useState(false);
+  const [abvChecked, setABVChecked] = useState(false);
+  const [classicChecked, setClassicChecked] = useState(false);
+  const [acidityChecked, setAcidityChecked] = useState(false);
 
   const handleInput = (event) => {
     const cleanInput = event.target.value.toLowerCase();
@@ -16,10 +18,18 @@ function App() {
   }
 
   const handleABVCheckBox = () => {
-    setabvChecked(!abvChecked);
+    setABVChecked(!abvChecked);
   }
 
-  const getBeers = () => {
+  const handleClassicCheckBox = () => {
+    setClassicChecked(!classicChecked);
+  }
+
+  const handleAcidityCheckBox = () => {
+    setAcidityChecked(!acidityChecked);
+  }
+
+  useEffect(() => {
     fetch("https://api.punkapi.com/v2/beers")
     .then((response) => {
       return response.json();
@@ -28,9 +38,9 @@ function App() {
       setBeers(data);
       
     })
-  }
+  },[])
 
-  getBeers();
+  
 
   return (
     <div className="App">
@@ -42,12 +52,14 @@ function App() {
         <section className="search-beers">
         <SearchBox searchTerm={searchTerm} handleInput={handleInput}/>
         </section>
-        <section className="high-abv-box">
-          <HighABVBox abvChecked={abvChecked} handleABVCheckBox={handleABVCheckBox}/>
+        <section className="check-boxes">
+          <CheckBoxes abvChecked={abvChecked} handleABVCheckBox={handleABVCheckBox} classicChecked={classicChecked}
+          handleClassicCheckBox={handleClassicCheckBox} acidityChecked={acidityChecked} handleAcidityCheckBox={handleAcidityCheckBox}/>
         </section>
       </nav>
       <main className="main-section">
-        {beers && <SearchBeers beers={beers} searchTerm={searchTerm} abvChecked={abvChecked}/>} 
+        {beers && <SearchBeers searchTerm={searchTerm} beers={beers} 
+        abvChecked={abvChecked} classicChecked={classicChecked} acidityChecked={acidityChecked}/>}
       </main>
     </div>
   );
