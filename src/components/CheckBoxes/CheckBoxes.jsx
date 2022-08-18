@@ -1,8 +1,10 @@
 import "./CheckBoxes.scss";
 
 const CheckBoxes = (props) => {
-    const { abvChecked, handleABVCheckBox, classicChecked, handleClassicCheckBox,
+
+    const {  abvChecked, handleABVCheckBox, classicChecked, handleClassicCheckBox,
     acidityChecked, handleAcidityCheckBox } = props;
+
     return (
         <div className="check-boxes">
             <div className="high-abv">

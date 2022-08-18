@@ -7,9 +7,8 @@ const SearchBeers = (props) => {
     if(searchTerm === undefined && abvChecked === false && classicChecked === false && acidityChecked === false) {
         
         return <BeerContainer beers={beers} />
-        
 
-    }else if (abvChecked === true) {
+    }else if (abvChecked === true && classicChecked == false && acidityChecked === false) {
 
         const abvFilteredBeers = beers.filter((data) => {
             return data.abv > 6;
@@ -18,7 +17,8 @@ const SearchBeers = (props) => {
         return (
             <BeerContainer beers={abvFilteredBeers} />
         )
-    }else if(classicChecked === true) {
+    
+    }else if(classicChecked === true && abvChecked === false && acidityChecked === false) {
         
         const classicFilteredBeers = beers.filter((data) => {
             
@@ -30,7 +30,23 @@ const SearchBeers = (props) => {
 
         return <BeerContainer beers={classicFilteredBeers} />
 
-    }else if(acidityChecked === true) {
+    }else if(abvChecked === true && classicChecked === true && acidityChecked === false) {
+
+        const classicFilteredBeers = beers.filter((data) => {
+            
+            const date = Number(data.first_brewed.slice(3, 7));
+
+            return date < 2010;
+
+    }) 
+        const filteredClassicBeers = classicFilteredBeers.filter((data) => {
+             
+            return data.abv > 6;
+    })
+
+    return <BeerContainer beers={filteredClassicBeers} />
+
+    }else if(acidityChecked === true && abvChecked === false && classicChecked === false) {
 
         const acidityFilteredBeers = beers.filter((data) => {
 
@@ -38,7 +54,6 @@ const SearchBeers = (props) => {
         })
 
         return <BeerContainer beers={acidityFilteredBeers}/>
-
     }else {
 
         const filteredBeers = beers.filter((data) => {

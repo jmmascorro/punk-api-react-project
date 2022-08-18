@@ -3,6 +3,9 @@ import { useEffect, useState } from "react";
 import SearchBox from './components/SearchBox/SearchBox';
 import SearchBeers from './components/SearchBeers/SearchBeers';
 import CheckBoxes from './components/CheckBoxes/CheckBoxes';
+import HighABV from './components/HighABV/HighABV';
+import ClassicRange from './components/ClassicRange/ClassicRange';
+import HighAcidity from './components/HighAcidity/HighAcidity';
 
 function App() {
 
@@ -40,8 +43,6 @@ function App() {
     })
   },[])
 
-  
-
   return (
     <div className="App">
       <header className="App-header">
@@ -53,13 +54,15 @@ function App() {
         <SearchBox searchTerm={searchTerm} handleInput={handleInput}/>
         </section>
         <section className="check-boxes">
-          <CheckBoxes abvChecked={abvChecked} handleABVCheckBox={handleABVCheckBox} classicChecked={classicChecked}
-          handleClassicCheckBox={handleClassicCheckBox} acidityChecked={acidityChecked} handleAcidityCheckBox={handleAcidityCheckBox}/>
+          <CheckBoxes abvChecked={abvChecked} handleABVCheckBox={handleABVCheckBox} classicChecked={classicChecked} handleClassicCheckBox={handleClassicCheckBox} acidityChecked={acidityChecked} handleAcidityCheckBox={handleAcidityCheckBox}/>
         </section>
       </nav>
       <main className="main-section">
-        {beers && <SearchBeers searchTerm={searchTerm} beers={beers} 
-        abvChecked={abvChecked} classicChecked={classicChecked} acidityChecked={acidityChecked}/>}
+        {/* {beers && <HighABV beers={beers} abvChecked={abvChecked}/>}
+        {beers && <ClassicRange beers={beers} classicChecked={classicChecked}/>}
+        {beers && <HighAcidity beers={beers} acidityChecked={acidityChecked} />} */}
+        {beers && <SearchBeers searchTerm={searchTerm} beers={beers} abvChecked={abvChecked}
+        classicChecked={classicChecked} acidityChecked={acidityChecked} />}
       </main>
     </div>
   );
