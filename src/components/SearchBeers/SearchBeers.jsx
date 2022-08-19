@@ -8,7 +8,7 @@ const SearchBeers = (props) => {
         
         return <BeerContainer beers={beers} />
 
-    }else if (abvChecked === true && classicChecked == false && acidityChecked === false) {
+    }else if (abvChecked === true && classicChecked === false && acidityChecked === false) {
 
         const abvFilteredBeers = beers.filter((data) => {
             return data.abv > 6;
@@ -30,6 +30,15 @@ const SearchBeers = (props) => {
 
         return <BeerContainer beers={classicFilteredBeers} />
 
+    }else if(acidityChecked === true && abvChecked === false && classicChecked === false) {
+
+        const acidityFilteredBeers = beers.filter((data) => {
+
+            return data.ph < 4;
+        })
+
+        return <BeerContainer beers={acidityFilteredBeers}/>
+
     }else if(abvChecked === true && classicChecked === true && acidityChecked === false) {
 
         const classicFilteredBeers = beers.filter((data) => {
@@ -39,21 +48,41 @@ const SearchBeers = (props) => {
             return date < 2010;
 
     }) 
-        const filteredClassicBeers = classicFilteredBeers.filter((data) => {
+        const filteredClassicABVBeers = classicFilteredBeers.filter((data) => {
              
             return data.abv > 6;
     })
 
-    return <BeerContainer beers={filteredClassicBeers} />
+    return <BeerContainer beers={filteredClassicABVBeers} />
 
-    }else if(acidityChecked === true && abvChecked === false && classicChecked === false) {
+    }else if (abvChecked === true && classicChecked === false && acidityChecked === true) {
 
-        const acidityFilteredBeers = beers.filter((data) => {
+        const abvFilteredBeers = beers.filter((data) => {
+            return data.abv > 6;
+        })
+        
+        const filteredABVAcidityBeers = abvFilteredBeers.filter((data) => {
+            return data.ph < 4;
+        })
+
+        return <BeerContainer beers={filteredABVAcidityBeers}/>
+    
+    }else if (abvChecked === false && classicChecked === true && acidityChecked === true) {
+
+        const classicFilteredBeers = beers.filter((data) => {
+            
+            const date = Number(data.first_brewed.slice(3, 7));
+
+            return date < 2010;
+        })
+
+        const filteredClassicAcidityBeers = classicFilteredBeers.filter((data) => {
 
             return data.ph < 4;
         })
 
-        return <BeerContainer beers={acidityFilteredBeers}/>
+        return <BeerContainer beers={filteredClassicAcidityBeers} />
+        
     }else {
 
         const filteredBeers = beers.filter((data) => {
