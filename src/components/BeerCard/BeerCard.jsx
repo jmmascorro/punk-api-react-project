@@ -27,14 +27,14 @@ const BeerCard = ({ name, image, tagline, description, abv, ph, brewed }) => {
 
   }else {
     return  (
-      <div className="beer-card">
-      <h2 className="beer-card__name">{name}</h2>
+      <div className="more-info-card">
+        <h2 className="more-info-name">{name}</h2>
         <h2 className="more-info-description">{description}</h2>
         <h2 className="more-info-brewed">first-brewed: {brewed}</h2>
         <h2 className="more-info-abv">ABV: {abv}%</h2>
         <h2 className="more-info-ph">PH: {ph}</h2>
         <div>
-          <button onClick={toggleMoreInfo}>Thank You</button>
+          <button onClick={toggleMoreInfo}>Back To Beer</button>
           </div>
       </div>)
   }

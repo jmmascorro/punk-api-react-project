@@ -1,3 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&family=Rubik+Dirt&display=swap');
+
+* {
+  font-family: "Rubik Dirt", "sans-serif";
+}
+
 .App {
   display: grid;
   grid-template-columns: 1fr 4fr;
@@ -15,6 +21,7 @@
   display: flex;
   justify-content: center;
   background-color: #009BC9;
+  
 
   .logo{
     width: 20%;
@@ -26,6 +33,9 @@
 .nav-bar {
   grid-area: nav;
   height: 100vh;
+  position: sticky;
+  top: 0;
+  z-index: 100;
 }
 
 .main-section {
