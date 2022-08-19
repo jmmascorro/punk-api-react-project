@@ -5,6 +5,8 @@ const BeerContainer = (props) => {
 
     const { beers } = props;
 
+    //map through beers data and render a beer card for each beer based on information 
+    //passed to rendered Beer Card component
         const mappedBeers = beers.map((data) => {
         
             return (

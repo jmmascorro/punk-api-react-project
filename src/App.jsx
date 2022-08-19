@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import SearchBox from './components/SearchBox/SearchBox';
 import SearchBeers from './components/SearchBeers/SearchBeers';
 import CheckBoxes from './components/CheckBoxes/CheckBoxes';
+import brewdog from "./images/brewdoglogo.jpg";
 
 function App() {
 
@@ -50,10 +51,9 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        BrewDog
+        <img className="logo" src={brewdog} />
       </header>
       <nav className="nav-bar">
-        NavBar
         <section className="search-beers">
         <SearchBox searchTerm={searchTerm} handleInput={handleInput}/>
         </section>

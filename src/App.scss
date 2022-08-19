@@ -8,21 +8,28 @@
   "nav main main";
 
 }
-
+    
 .App-header {
-  border: 2px solid black;
   grid-area: header;
   height: 20vh;
+  display: flex;
+  justify-content: center;
+  background-color: #009BC9;
+
+  .logo{
+    width: 20%;
+    height: 100%;  
+}
+  
 }
 
 .nav-bar {
-  border: 2px solid black;
   grid-area: nav;
   height: 100vh;
 }
 
 .main-section {
-  border: 2px solid black;
+  
   grid-area: main;
   padding-top: 20px;
 }

@@ -1,0 +1,13 @@
+.search-box {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    height: 35px;
+    
+     
+    .search-box__input {
+        border-radius: 15px;
+        font-size: 15px;
+        text-align: center;
+    }
+}
