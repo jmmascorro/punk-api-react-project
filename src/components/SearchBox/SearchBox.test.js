@@ -21,3 +21,17 @@ it("should render the basic input fields", () => {
     expect(searchInput).toBeTruthy();
 
 });
+
+it("should render beer cards based on search term", () => {
+
+    render(<SearchBox />);
+
+    const searchInput = screen.getByRole("textbox");
+    
+    userEvent.type(searchInput, "trashy");
+
+    const success = screen.getByDisplayValue("trashy");
+
+    expect(success).toBeInTheDocument(); 
+
+});
