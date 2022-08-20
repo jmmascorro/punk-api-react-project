@@ -44,5 +44,27 @@
   padding-top: 20px;
 }
 
+@media screen and (max-width: 400px) {
+
+  .App {
+    display: grid;
+    grid-template-columns: 1fr 4fr;
+    grid-template-areas: 
+    "header header header"
+    "nav nav nav"
+    "main main main"
+    "main main main";
+  
+  }
+
+  .nav-bar {
+    height: 40vh;
+    position: relative;
+  }
+
+}
+
+
+
 
 
