@@ -1,0 +1,16 @@
+.beers{
+    display:grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    justify-items: center;
+}
+
+@media screen and (max-width: 650px) {
+
+    .beers{
+        display:grid;
+        grid-template-columns: 1fr;
+        gap: 10px;
+        justify-items: center;
+    }
+}
