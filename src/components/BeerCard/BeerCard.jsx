@@ -20,7 +20,7 @@ const BeerCard = ({ name, image, tagline, description, abv, ph, brewed }) => {
         <img className="beer-card__image" src={image} alt={name} />
         <h2 className="beer-card__tagline">{tagline}</h2>
         <div>
-          <button onClick={toggleMoreInfo}>More Info</button>
+          <button className="toggle-button" onClick={toggleMoreInfo}>More Info</button>
           </div>
       </div>
     )
@@ -34,7 +34,7 @@ const BeerCard = ({ name, image, tagline, description, abv, ph, brewed }) => {
         <h2 className="more-info-abv">ABV: {abv}%</h2>
         <h2 className="more-info-ph">PH: {ph}</h2>
         <div>
-          <button onClick={toggleMoreInfo}>Back To Beer</button>
+          <button className="toggle-button" onClick={toggleMoreInfo}>Back To Beer</button>
           </div>
       </div>)
   }

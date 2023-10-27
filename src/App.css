@@ -23,13 +23,77 @@
 
 .nav-bar {
   grid-area: nav;
-  height: 100vh;
+  height: 50%;
   position: sticky;
-  top: 0;
   z-index: 100;
 }
 
 .main-section {
   grid-area: main;
   padding-top: 20px;
+}
+
+.new-beer-button {
+  display: flex;
+  justify-content: center;
+}
+.new-beer-button .beer-button {
+  margin-top: 20px;
+  width: 120px;
+  height: 40px;
+  border-radius: 12px;
+  background-color: #009BC9;
+  color: white;
+  border: none;
+}
+.new-beer-button .beer-button:hover {
+  background: black;
+  cursor: pointer;
+  color: white;
+}
+
+.new-beer-heading {
+  font-size: 18px;
+  text-align: center;
+}
+
+.new-beer-form {
+  display: flex;
+  justify-content: center;
+}
+.new-beer-form .new-beer-submit {
+  margin-top: 10px;
+  margin-left: 18%;
+  width: 120px;
+  height: 30px;
+  border-radius: 12px;
+  background-color: #009BC9;
+  color: white;
+  border: none;
+}
+.new-beer-form .new-beer-submit:hover {
+  background: black;
+  cursor: pointer;
+  color: white;
+}
+
+input {
+  margin: 5px;
+}
+
+@media screen and (max-width: 400px) {
+  .App {
+    display: grid;
+    grid-template-columns: 1fr 4fr;
+    grid-template-areas: "header header header" "nav nav nav" "main main main" "main main main";
+  }
+
+  .nav-bar {
+    height: 40vh;
+    position: relative;
+  }
+
+  .new-beer-form, .new-beer-button, .new-beer-heading {
+    display: none;
+  }
 }
